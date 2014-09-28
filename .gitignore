@@ -1,4 +1,5 @@
 node_module*
 conf.env
+conf.js
 utils/database/config.js
 nohup.out
