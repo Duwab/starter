@@ -11,12 +11,9 @@ var cookieParser	= require('cookie-parser');
 var bodyParser		= require('body-parser');
 var session			= require('express-session');
 var mysql			= require('./utils/database/module.js');
+var email			= require('./utils/email/module.js');
 
 var app = express();
-
-// var httpServer = http.createServer(app);
-//var httpsServer = https.createServer(credentials, app);
-
 
 // configuration ===============================================================
 // connect to our database
@@ -51,7 +48,18 @@ require('./routes/testing.js')(app);
     console.log('Listening on port %d', server.address().port);
 }); */
 var httpServer = http.createServer(app);
+//var httpsServer = https.createServer(credentials, app);
 httpServer.listen(conf.PORT, function() {
     console.log('Listening on port %d', httpServer.address().port);
+	var mail = new email({
+		to:conf.EMAIL_ADMIN,
+		template : 'server/start',
+		locals : {
+			date : (new Date())
+		}
+	});
+	mail.getStatus(function(status){
+		console.log('status', status);
+	});
 });
 //httpsServer.listen(8901);

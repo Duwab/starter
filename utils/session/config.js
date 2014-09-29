@@ -9,7 +9,7 @@ var bcrypt = require('bcrypt-nodejs');
 var fn_remember = function(req) {
 	console.log("hello");
 	if (req.body.remember) {
-	  req.session.cookie.maxAge = 1000 * 60 * 3;
+	  req.session.cookie.maxAge = 1000 * 60 * 60 * 24 * 31;
 	} else {
 	  req.session.cookie.expires = false;
 	}

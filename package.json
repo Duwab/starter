@@ -18,6 +18,9 @@
     "ejs" : "~0.8.5",
     "connect-flash" : "~0.1.1", 	
     "bcrypt-nodejs" : "latest" ,
-	"mysql" : "*"	
+	"mysql" : "*",
+	"nodemailer" : "1.3.0",
+	"nodemailer-smtp-pool" : "0.1.8",
+	"email-templates" : "1.1.2"
   }
 }
